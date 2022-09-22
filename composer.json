@@ -1,0 +1,19 @@
+{
+    "name": "psyduck/tool",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Psyduck\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ta",
+            "email": "1057523194@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.3.4"
+    }
+}
