@@ -55,4 +55,4 @@ class Env
     }
 }
 
-Env::loadFile($_SERVER['DOCUMENT_ROOT'] . '/src/.env');
+Env::loadFile(dirname(dirname(__FILE__)) . '/.env');

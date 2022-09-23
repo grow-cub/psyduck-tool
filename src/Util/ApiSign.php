@@ -1,16 +1,23 @@
 <?php
 
 namespace Psyduck\Util;
+use Psyduck\Core\Env;
 
 /**
  * 一般用于数据传输
  */
 
-class ApiSign
+class ApiSign extends Env
 {
     // 设置一个公钥(key)和私钥(secret)，公钥用于区分用户，私钥加密数据，不能公开
-    private static $key = "c4ca4238a0b923820dcc509a6f75849b";
-    private static $secret = "28c8edde3d61a0411511d3b1866f0636";
+    //private static $key ;
+    private static $secret ;
+
+    public function __construct()
+    {
+        self::$key = Env::get('ApiSign.key');
+        self::$secret = Env::get('ApiSign.secret');
+    }
 
     /**
      * @Author 可达鸭
@@ -24,12 +31,15 @@ class ApiSign
         'timestamp' => time(),
         );
      * @Date 2022/9/19 22:24:15
-     * @param $secret
      * @param $data
+     * @param $secret
      * @return string
      */
-    public static function getSign($secret, $data): string
+    public static function getSign($data,$secret = null): string
     {
+        if(empty($secret)){
+            $secret = self::$secret;
+        }
         $data['timestamp'] = Time::getTimeStamp();
         // 对数组的值按key排序
         ksort($data);
@@ -46,11 +56,14 @@ class ApiSign
      * @Author 可达鸭
      * @Description 后台验证sign是否合法
      * @Date 2022/9/19 22:52:37
-     * @param $secret
      * @param $data
+     * @param $secret
      * @return bool|string|void
      */
-    public static function verifySign($secret, $data) {
+    public static function verifySign($data,$secret = null) {
+        if(empty($secret)){
+            $secret = self::$secret;
+        }
         // 验证参数中是否有签名
         if (!isset($data['sign']) || !$data['sign']) {
             return Result::fail('签名不存在');

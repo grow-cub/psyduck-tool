@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bcf9cb34-f029-4414-9ee2-9b0cbbdf0722" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Env.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Env.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Util/ApiSign.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util/ApiSign.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -12,7 +14,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -53,6 +55,7 @@
       <option name="presentableId" value="Default" />
       <updated>1663824967298</updated>
       <workItem from="1663824974278" duration="2073000" />
+      <workItem from="1663912618684" duration="1903000" />
     </task>
     <servers />
   </component>
