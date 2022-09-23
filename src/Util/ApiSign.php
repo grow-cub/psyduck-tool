@@ -15,8 +15,8 @@ class ApiSign extends Env
 
     public function __construct()
     {
-        self::$key = Env::get('ApiSign.key');
-        self::$secret = Env::get('ApiSign.secret');
+        self::$key = Env::get('UtilApiSign.key');
+        self::$secret = Env::get('UtilApiSign.secret');
     }
 
     /**
