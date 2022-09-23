@@ -18,6 +18,7 @@
         "ext-json": "*",
         "ext-curl": "*",
         "ext-zlib": "*",
-        "ext-openssl": "*"
+        "ext-openssl": "*",
+        "godruoyi/php-snowflake": "dev-master"
     }
 }

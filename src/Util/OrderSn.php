@@ -2,7 +2,6 @@
 
 namespace Psyduck\Util;
 
-use Godruoyi\Snowflake;
 
 class OrderSn
 {
@@ -24,7 +23,6 @@ class OrderSn
 
     public static function getSnBySnowflake(): string
     {
-        require_once './vendor/autoload.php';
         $snowflake = new \Godruoyi\Snowflake\Snowflake;
         $snowflake->setStartTimeStamp(strtotime(date('Y-m-d'))*1000);
 
