@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<button onclick="en_pako()">ajax加密</button>
+<button onclick="de_pako()">ajax解密</button>
+</body>
+</html>
+
+<!--pako/dist/pako.js-->
+<script src="./pako.js"></script>
+<script>
+    //todo pako
+    /**
+     * 必须引入Uint8Array与Base64互转函数
+     * 如果不需要同时处理压缩和解压可按需单独引入脚本pako_deflate.min.js（压缩）| pako_inflate.min.js（解压）；
+     * 如果需要同时处理压缩和解压那么请直接引入pako.min.js
+     */
+
+    //前端加密数据集
+    function en_pako(){
+        // JS压缩，注意：需要引入dist/pako_deflate.js(仅支持压缩)或dist/pako.js(支持压缩和解压)
+        const rawData = {
+            title: "this is pako.defalte test",
+            author: "slongzhang@qq.com",
+            date: "2021-04-02",
+            content: "test test test"
+        };
+        const binaryString = pako.deflateRaw(JSON.stringify(rawData), {to: 'string'});
+        const compressedBase64 = uint8arrayToBase64(binaryString);
+        // q1YqySzJSVWyUirJyCxWAKKCxOx8vZTUtMScklSFktTiEiUdpcTSkoz8IqCi4pz8vPSqjMS8dIfCQr3k/FygZEpiCUi/kYGRoa6Bia6BEVAsOT+vJDWvBGQs0ASFUWKUwEco1QIA
+        console.log(compressedBase64);
+    }
+
+    //后端返回待解密数据集
+    const str = 'FYxBDsIwDAS/EvlMqxBx6omvWKlJIoJNm+VCxd9xpT3tzs5BaOhCC6G2ETxvftq8yoM7JEAG6EL8QbXdodFNy7eylvu2zdlePq6M859iuk7xNsXkXTaFKE6tG4LkamFgb1ro9wc=';
+    const decompress = function (str) {
+        return pako.inflateRaw(base64ToUint8Array(str), {to: 'string'});
+    };
+    function de_pako(){
+        var rawData = decompress(str);
+        console.log(rawData);
+    }
+
+    /**
+     * 前端Uint8Array与Base64互转函数
+     * @param u8Arr
+     * @returns {string}
+     */
+    // uint8array转为base64字符串
+    function uint8arrayToBase64(u8Arr) {
+        let CHUNK_SIZE = 0x8000; //arbitrary number
+        let index = 0;
+        let length = u8Arr.length;
+        let result = '';
+        let slice;
+        while (index < length) {
+            slice = u8Arr.subarray(index, Math.min(index + CHUNK_SIZE, length));
+            result += String.fromCharCode.apply(null, slice);
+            index += CHUNK_SIZE;
+        }
+        // web image base64图片格式: "data:image/png;base64," + b64encoded;
+        // return  "data:image/png;base64," + btoa(result);
+        return btoa(result);
+    }
+    // base64字符串转为uint8array数组
+    function base64ToUint8Array(base64String) {
+        let padding = '='.repeat((4 - base64String.length % 4) % 4);
+        let base64 = (base64String + padding)
+            .replace(/\-/g, '+')
+            .replace(/_/g, '/');
+        let rawData = window.atob(base64);
+        let outputArray = new Uint8Array(rawData.length);
+        for (var i = 0; i < rawData.length; ++i) {
+            outputArray[i] = rawData.charCodeAt(i);
+        }
+        return outputArray;
+    }
+</script>
+
+<!-- 文章链接 https://mp.weixin.qq.com/s/qoYd1SxOVOdipaXLjux8-g
+github https://github.com/nodeca/pako -->

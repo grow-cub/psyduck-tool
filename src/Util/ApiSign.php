@@ -7,10 +7,10 @@ use Psyduck\Core\Env;
  * 一般用于数据传输
  */
 
-class ApiSign extends Env
+class ApiSign
 {
     // 设置一个公钥(key)和私钥(secret)，公钥用于区分用户，私钥加密数据，不能公开
-    //private static $key ;
+    private static $key ;
     private static $secret ;
 
     public function __construct()

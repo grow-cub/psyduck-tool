@@ -2,21 +2,31 @@
 
 namespace Psyduck\Util;
 
+use Psyduck\Core\Env;
+
 class BasisJwt
 {
     //储存jwt数据
     public static $payLoadData;
 
     //头部
-    private static $header = array(
-        'alg' => 'HS256', //生成signature的算法
-        'typ' => 'JWT'    //类型
-    );
+    private static $header;
 
     //使用HMAC生成信息摘要时所使用的密钥
-    private static $key = '123456';
-    private static $iss = 'jwt_admin';
-    private static $jti = 'JWT';
+    private static $key;
+    private static $iss;
+    private static $jti;
+
+    public function __construct()
+    {
+        self::$key = Env::get('UtilBasisJwt.key');
+        self::$iss = Env::get('UtilBasisJwt.iss');
+        self::$jti = Env::get('UtilBasisJwt.jwt');
+        self::$header = array(
+            'alg' => 'HS256', //生成signature的算法
+            'typ' => 'JWT'    //类型
+        );
+    }
 
     /**
      * 获取jwt token

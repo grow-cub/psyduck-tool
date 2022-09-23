@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="bcf9cb34-f029-4414-9ee2-9b0cbbdf0722" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Env.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Env.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.env" beforeDir="false" afterPath="$PROJECT_DIR$/src/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Util/ApiSign.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util/ApiSign.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Util/BasisJwt.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util/BasisJwt.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +41,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Other" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -55,7 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1663824967298</updated>
       <workItem from="1663824974278" duration="2073000" />
-      <workItem from="1663912618684" duration="1903000" />
+      <workItem from="1663912618684" duration="4261000" />
     </task>
     <servers />
   </component>
